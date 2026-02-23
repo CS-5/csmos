@@ -1,11 +1,11 @@
 {
-    "keyboard_name": "cosmotyl",
+    "keyboard_name": "cskb",
     "manufacturer": "Cosmos",
     "url": "ryanis.cool/cosmos",
     "maintainer": "Cosmos",
     "usb": {
-        "vid": "0x0001",
-        "pid": "0x0001",
+        "vid": "0xFEED",
+        "pid": "0x4353",
         "device_version": "0.0.1"
     },
     "processor": "RP2040",
@@ -16,8 +16,15 @@
         "console": true,
         "encoder": false,
         "encoder_map": false,
-        "extrakey": false,
-        "oled": false
+        "extrakey": true,
+        "nkro": true,
+        "oled": false,
+        "tri_layer": true
+    },
+    "tri_layer": {
+        "lower": 1,
+        "upper": 2,
+        "adjust": 3
     },
     "matrix_pins": {
         "cols": [
