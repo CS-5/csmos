@@ -1,21 +1,21 @@
 {
-    "userspace_version": "1.1",
-    "build_targets": [
-        [
-            "cosmos/cskb",
-            "via",
-            {
-                "MAKECMDGOALS": "uf2-split-left",
-                "TARGET": "cskb_left"
-            }
-        ],
-        [
-            "cosmos/cskb",
-            "via",
-            {
-                "MAKECMDGOALS": "uf2-split-right",
-                "TARGET": "cskb_right"
-            }
-        ]
+  "userspace_version": "1.1",
+  "build_targets": [
+    [
+      "cosmos/csmos",
+      "via",
+      {
+        "MAKECMDGOALS": "uf2-split-left",
+        "TARGET": "csmos_left"
+      }
+    ],
+    [
+      "cosmos/csmos",
+      "via",
+      {
+        "MAKECMDGOALS": "uf2-split-right",
+        "TARGET": "csmos_right"
+      }
     ]
+  ]
 }

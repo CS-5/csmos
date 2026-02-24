@@ -15,7 +15,7 @@ jobs:
     with:
       qmk_repo: qmk/qmk_firmware
       qmk_ref: master
-      preparation_command: mkdir -p qmk_firmware/keyboards/cosmos/cskb && cp -r firmware/* qmk_firmware/keyboards/cosmos/cskb/ && qmk userspace-doctor
+      preparation_command: mkdir -p qmk_firmware/keyboards/cosmos/csmos && cp -r firmware/* qmk_firmware/keyboards/cosmos/csmos/ && qmk userspace-doctor
 
   publish:
     name: QMK Userspace Publish
