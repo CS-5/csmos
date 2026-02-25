@@ -1,5 +1,6 @@
 #pragma once
 
+// Cosmos Stuff
 #define EE_HANDS
 
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
@@ -9,3 +10,8 @@
 #define SERIAL_USART_PIN_SWAP
 #define SERIAL_USART_TX_PIN GP0
 #define SERIAL_USART_RX_PIN GP1
+
+// QMK
+#define TAPPING_TERM 200
+#define PERMISSIVE_HOLD
+#define SPECULATIVE_HOLD

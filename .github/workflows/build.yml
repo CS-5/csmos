@@ -13,9 +13,9 @@ jobs:
     name: QMK Userspace Build
     uses: qmk/.github/.github/workflows/qmk_userspace_build.yml@main
     with:
-      qmk_repo: qmk/qmk_firmware
-      qmk_ref: master
-      preparation_command: mkdir -p qmk_firmware/keyboards/cosmos/csmos && cp -r firmware/* qmk_firmware/keyboards/cosmos/csmos/ && qmk userspace-doctor
+      qmk_repo: vial-kb/vial-qmk
+      qmk_ref: vial
+      preparation_command: qmk userspace-doctor
 
   publish:
     name: QMK Userspace Publish
