@@ -30,7 +30,7 @@ qmk compile -kb cosmos/csmos -km default \
   -e TARGET=csmos_right
 
 # QMK copies outputs to both the qmk_firmware and userspace (project root) folders
-mv "$PROJECT_DIR/csmos_left.uf2" "$BUILD_DIR/CSmos-left.uf2"
-mv "$PROJECT_DIR/csmos_right.uf2" "$BUILD_DIR/CSmos-right.uf2"
+mv "$PROJECT_DIR/csmos_left.uf2" "$BUILD_DIR/csmos-left.uf2"
+mv "$PROJECT_DIR/csmos_right.uf2" "$BUILD_DIR/csmos-right.uf2"
 
-echo "Build complete: $BUILD_DIR/CSmos-left.uf2, $BUILD_DIR/CSmos-right.uf2"
+echo "Build complete: $BUILD_DIR/csmos-left.uf2, $BUILD_DIR/csmos-right.uf2"
