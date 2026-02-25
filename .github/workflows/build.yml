@@ -15,7 +15,7 @@ jobs:
     with:
       qmk_repo: vial-kb/vial-qmk
       qmk_ref: vial
-      preparation_command: qmk userspace-doctor && git clone --depth 1 https://github.com/getreuer/qmk-modules.git modules/getreuer
+      preparation_command: ln -s "$PWD/keyboards/cosmos" qmk_firmware/keyboards/cosmos && git clone --depth 1 https://github.com/getreuer/qmk-modules.git modules/getreuer
 
   publish:
     name: QMK Userspace Publish
