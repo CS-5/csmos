@@ -15,7 +15,7 @@ jobs:
     with:
       qmk_repo: vial-kb/vial-qmk
       qmk_ref: vial
-      preparation_command: qmk userspace-doctor
+      preparation_command: qmk userspace-doctor && git clone --depth 1 https://github.com/getreuer/qmk-modules.git modules/getreuer
 
   publish:
     name: QMK Userspace Publish

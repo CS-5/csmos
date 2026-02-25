@@ -1,6 +1,6 @@
 #pragma once
 
-// Cosmos Stuff
+// Cosmos
 #define EE_HANDS
 
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
