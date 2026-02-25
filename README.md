@@ -56,7 +56,7 @@ Firmware is built automatically via GitHub Actions on every push. Release artifa
 
 # Build both halves
 ./scripts/build.sh
-# → build/CSmos-left.uf2, build/CSmos-right.uf2
+# → build/csmos-left.uf2, build/csmos-right.uf2
 ```
 
 Requires the [QMK CLI](https://docs.qmk.fm/) (`qmk`). The setup script clones [vial-qmk](https://github.com/vial-kb/vial-qmk) to `.vial-qmk/` and installs [getreuer's community modules](https://github.com/getreuer/qmk-modules) to `.vial-qmk/modules/getreuer/`.
