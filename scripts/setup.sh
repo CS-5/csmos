@@ -5,6 +5,14 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 VIAL_QMK_DIR="$PROJECT_DIR/.vial-qmk"
 
+# Install QMK CLI
+if ! command -v qmk &>/dev/null; then
+  echo "Installing QMK CLI..."
+  uv tool install qmk
+else
+  echo "QMK CLI already installed."
+fi
+
 # Clone vial-qmk
 if [ ! -d "$VIAL_QMK_DIR" ]; then
   echo "Cloning vial-qmk..."
@@ -15,6 +23,10 @@ if [ ! -d "$VIAL_QMK_DIR" ]; then
 else
   echo "vial-qmk already cloned."
 fi
+
+# Install QMK dependencies (arm-none-eabi-gcc, etc.)
+echo "Installing QMK dependencies..."
+qmk setup --home "$VIAL_QMK_DIR" --yes
 
 # Symlink keyboard config
 if [ ! -L "$VIAL_QMK_DIR/keyboards/cosmos" ]; then

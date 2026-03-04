@@ -10,6 +10,7 @@ Usage:
 """
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -56,6 +57,16 @@ RIGHT_START = BASE_INDENT + 6 * COL_W + COL_W  # 8 + 54 + 9 = 71
 def normalize(kc):
     if kc == -1 or kc is None:
         return None
+    # Convert Vial's LTn(kc) to QMK's LT(n, kc)
+    m = re.match(r'^LT(\d+)\((.+)\)$', kc)
+    if m:
+        layer, inner = m.group(1), normalize(m.group(2))
+        return f"LT({layer}, {inner})"
+    # Normalize keycodes inside wrapper functions like LGUI_T(), LALT_T(), etc.
+    m = re.match(r'^(\w+)\((.+)\)$', kc)
+    if m:
+        func, inner = m.group(1), normalize(m.group(2))
+        return f"{func}({inner})"
     return ALIASES.get(kc, kc)
 
 
@@ -129,7 +140,7 @@ def format_layer(keys, layer_idx, is_last_layer):
         is_last_row = gi == len(ROW_DEFS) - 1
         right_parts = []
         for i, k in enumerate(rk):
-            last = is_last_row and is_last_layer and i == n_right - 1
+            last = is_last_row and i == n_right - 1
             right_parts.append(fmt(k, last=last))
         right_str = "".join(right_parts)
 
