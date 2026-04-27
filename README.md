@@ -2,6 +2,8 @@
 
 QMK firmware for a 62-key split ergonomic keyboard built on the [Cosmos](https://ryanis.cool/cosmos) platform with Lemon Wired (RP2040) controllers and Pumpkin Patch PCBs. Uses [Vial](https://get.vial.today/) for runtime key remapping.
 
+![](./keyboard.jpeg)
+
 ## Configuration Hierarchy
 
 QMK uses multiple config files at two levels. Settings at the keymap level override the keyboard level.
