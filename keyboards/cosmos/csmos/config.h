@@ -16,8 +16,7 @@
 #define PERMISSIVE_HOLD
 #define SPECULATIVE_HOLD
 
-// Home-row-mod reliability (tunable at runtime in Vial -> QMK Settings):
-// Chordal Hold = opposite-hands rule (same-hand chords resolve as taps);
-// Flow Tap = force a tap when pressed within 150ms of the previous key.
-#define CHORDAL_HOLD
-#define FLOW_TAP_TERM 150
+// Chordal Hold (opposite-hands rule) and Flow Tap are already compiled into
+// vial-qmk by default and are enabled/tuned at runtime in Vial -> QMK Settings,
+// so they are NOT #defined here (doing so redefines the command-line value and
+// fails the -Werror build). The split handedness map lives in csmos.c.

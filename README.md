@@ -16,7 +16,7 @@ Layers follow Miryoku's opposite-hand rule: hold a thumb on one hand, type the l
 
 ### Tap-hold / home-row mods
 
-Home-row mods use **Chordal Hold** (opposite-hands rule — same-hand rolls resolve as taps) and **Flow Tap** (force a tap within 150 ms of the previous key), plus `PERMISSIVE_HOLD` and `SPECULATIVE_HOLD`. All of these — and `TAPPING_TERM` — are tunable at runtime in **Vial → QMK Settings** without recompiling.
+Home-row mods rely on **Chordal Hold** (opposite-hands rule — same-hand rolls resolve as taps) and **Flow Tap** (force a tap shortly after the previous key). vial-qmk already compiles both in by default so they are enabled/tuned at runtime in **Vial → QMK Settings** — `config.h` must not re-`#define` them or the `-Werror` build fails. What this firmware adds is the split **handedness map** in `csmos.c` (matrix rows 0–6 = left, 7–13 = right) so Chordal Hold's opposite-hands rule is correct. `TAPPING_TERM`, `PERMISSIVE_HOLD`, and `SPECULATIVE_HOLD` are set in `config.h` and are also tunable in Vial.
 
 > Vial stores the keymap and QMK settings in EEPROM and overrides `keymap.c`/`config.h` at runtime. After flashing, reset EEPROM (hold the lower-left key while plugging in) so this default loads, then fine-tune in Vial.
 

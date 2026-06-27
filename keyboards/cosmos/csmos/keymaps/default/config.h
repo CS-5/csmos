@@ -10,5 +10,10 @@
 // Vial dynamic combos. COMBO_ENABLE turns on QMK's combo engine, but vial.c only
 // provides the dynamic key_combos[] storage under VIAL_COMBO_ENABLE, so both this
 // and an entry count are required or the build fails with an undefined key_combos.
+// Guarded with ifndef so they never redefine a value the build already set.
+#ifndef VIAL_COMBO_ENABLE
 #define VIAL_COMBO_ENABLE
+#endif
+#ifndef VIAL_COMBO_ENTRIES
 #define VIAL_COMBO_ENTRIES 16
+#endif
