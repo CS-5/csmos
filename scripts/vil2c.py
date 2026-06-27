@@ -21,11 +21,11 @@ KEYBOARD_JSON = PROJECT_DIR / "keyboards/cosmos/csmos/keyboard.json"
 # Visual row definitions: (total_keys, n_left, left_col_start, right_col_start, label)
 # Column starts are 0-indexed within each half (0 = outermost)
 ROW_DEFS = [
-    (12, 6, 0, 0, None),  # label is generated dynamically
-    (12, 6, 0, 0, None),
-    (12, 6, 0, 0, None),
-    (12, 6, 0, 0, None),
-    (4, 2, 2, 2, "5th column bottom"),
+    (10, 5, 0, 0, None),  # label is generated dynamically
+    (10, 5, 0, 0, None),
+    (10, 5, 0, 0, None),
+    (10, 5, 0, 0, None),
+    (4, 2, 1, 2, "5th column bottom"),
     (6, 3, 3, 0, "thumb top"),
     (4, 2, 4, 0, "thumb bottom"),
 ]
@@ -50,8 +50,8 @@ ALIASES = {
 
 COL_W = 9        # column width: "KC_XXX, " padded
 BASE_INDENT = 8
-# Right section starts at this position (left 6 cols + 1 empty col gap)
-RIGHT_START = BASE_INDENT + 6 * COL_W + COL_W  # 8 + 54 + 9 = 71
+# Right section starts at this position (left 5 cols + 1 empty col gap)
+RIGHT_START = BASE_INDENT + 5 * COL_W + COL_W  # 8 + 45 + 9 = 62
 
 
 def normalize(kc):
@@ -105,8 +105,8 @@ def format_layer(keys, layer_idx, is_last_layer):
 
         # Direction label for first row, aligned to columns
         if gi == 0:
-            left_end = BASE_INDENT + 6 * COL_W   # 62
-            right_end = RIGHT_START + 6 * COL_W   # 125
+            left_end = BASE_INDENT + 5 * COL_W   # 53
+            right_end = RIGHT_START + 5 * COL_W   # 107
             outer_l = "outer --->"
             inner_l = "<--- inner"
             inner_r = "inner --->"

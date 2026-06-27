@@ -1,6 +1,6 @@
 # CSmos
 
-QMK firmware for a 62-key split ergonomic keyboard built on the [Cosmos](https://ryanis.cool/cosmos) platform with Lemon Wired (RP2040) controllers and Pumpkin Patch PCBs. Uses [Vial](https://get.vial.today/) for runtime key remapping.
+QMK firmware for a 54-key split ergonomic keyboard built on the [Cosmos](https://ryanis.cool/cosmos) platform with Lemon Wired (RP2040) controllers and Pumpkin Patch PCBs. Uses [Vial](https://get.vial.today/) for runtime key remapping.
 
 ![](./keyboard.jpeg)
 
