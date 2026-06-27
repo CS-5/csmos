@@ -4,6 +4,26 @@ QMK firmware for a 54-key split ergonomic keyboard built on the [Cosmos](https:/
 
 ![](./keyboard.jpeg)
 
+## Keymap
+
+Three layers (the compiled default in `keymap.c`; Vial overrides at runtime):
+
+- **Base** — QWERTY + number row. GACS home-row mods (`A`/`S`/`D`/`F` = GUI/Alt/Ctrl/Shift, mirrored on `J`/`K`/`L`/`;`). `G`/`H` are plain. The right pinky is `;` (`:` = Shift+`;`). The two free left bottom keys hold `-` and `=`.
+- **Nav** (layer 1, held via the left-thumb `Space`) — arrows on the right home row, Home/End/PgUp/PgDn, cut/copy/paste/undo/redo, Ins/Del, media keys, and left-hand mods for chording.
+- **Sym** (layer 2, held via the right-thumb `Backspace`) — shifted-number symbols, brackets/braces/parens, and the keys dropped with the outer columns (`` ` `` `'` `"` `\` `~` `<` `>` `|` `+` `_`). `Caps Word` (`CW_TOGG`) lives here too.
+
+Layers follow Miryoku's opposite-hand rule: hold a thumb on one hand, type the layer with the other. **Hyper** is on the left outer-top thumb (`Del` on tap).
+
+### Tap-hold / home-row mods
+
+Home-row mods use **Chordal Hold** (opposite-hands rule — same-hand rolls resolve as taps) and **Flow Tap** (force a tap within 150 ms of the previous key), plus `PERMISSIVE_HOLD` and `SPECULATIVE_HOLD`. All of these — and `TAPPING_TERM` — are tunable at runtime in **Vial → QMK Settings** without recompiling.
+
+> Vial stores the keymap and QMK settings in EEPROM and overrides `keymap.c`/`config.h` at runtime. After flashing, reset EEPROM (hold the lower-left key while plugging in) so this default loads, then fine-tune in Vial.
+
+### Combos
+
+Combos are managed dynamically by Vial (static combos can't be compiled into a Vial build — `vial.c` owns `key_combos`). Suggested combos to add in Vial's Combo tab: `W`+`E` → `(`, `I`+`O` → `)`, `C`+`V` → `'`, `M`+`,` → Caps Word.
+
 ## Configuration Hierarchy
 
 QMK uses multiple config files at two levels. Settings at the keymap level override the keyboard level.

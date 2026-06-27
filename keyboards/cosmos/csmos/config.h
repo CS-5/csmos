@@ -15,3 +15,9 @@
 #define TAPPING_TERM 200
 #define PERMISSIVE_HOLD
 #define SPECULATIVE_HOLD
+
+// Home-row-mod reliability (tunable at runtime in Vial -> QMK Settings):
+// Chordal Hold = opposite-hands rule (same-hand chords resolve as taps);
+// Flow Tap = force a tap when pressed within 150ms of the previous key.
+#define CHORDAL_HOLD
+#define FLOW_TAP_TERM 150
