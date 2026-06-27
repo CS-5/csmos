@@ -6,3 +6,9 @@
 // These are physically on opposite halves of the split keyboard.
 #define VIAL_UNLOCK_COMBO_ROWS {3, 10}
 #define VIAL_UNLOCK_COMBO_COLS {0, 5}
+
+// Vial dynamic combos. COMBO_ENABLE turns on QMK's combo engine, but vial.c only
+// provides the dynamic key_combos[] storage under VIAL_COMBO_ENABLE, so both this
+// and an entry count are required or the build fails with an undefined key_combos.
+#define VIAL_COMBO_ENABLE
+#define VIAL_COMBO_ENTRIES 16
