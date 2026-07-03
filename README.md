@@ -16,9 +16,20 @@ Layers follow Miryoku's opposite-hand rule: hold a thumb on one hand, type the l
 
 ### Tap-hold / home-row mods
 
-Home-row mods rely on **Chordal Hold** (opposite-hands rule — same-hand rolls resolve as taps) and **Flow Tap** (force a tap shortly after the previous key). vial-qmk already compiles both in by default so they are enabled/tuned at runtime in **Vial → QMK Settings** — `config.h` must not re-`#define` them or the `-Werror` build fails. What this firmware adds is the split **handedness map** in `csmos.c` (matrix rows 0–6 = left, 7–13 = right) so Chordal Hold's opposite-hands rule is correct. `TAPPING_TERM`, `PERMISSIVE_HOLD`, and `SPECULATIVE_HOLD` are set in `config.h` and are also tunable in Vial.
+Home-row mods rely on **Chordal Hold** (opposite-hands rule — same-hand rolls resolve as taps) and **Flow Tap** (force a tap shortly after the previous key).
 
-> Vial stores the keymap and QMK settings in EEPROM and overrides `keymap.c`/`config.h` at runtime. After flashing, reset EEPROM (hold the lower-left key while plugging in) so this default loads, then fine-tune in Vial.
+**Important:** on this build the tap-hold decision is owned by **Vial → QMK Settings**, not `config.h`. Because `QMK_SETTINGS = yes` (vial-qmk's default), the build force-defines `CHORDAL_HOLD`, `FLOW_TAP_TERM`, and per-key permissive hold *only so the Vial GUI can control them at runtime* — that is also why `config.h` must **not** `#define` them (doing so redefines the command-line value and fails the `-Werror` build). The runtime defaults from `qmk_settings_reset()` are **all off** (`chordal_hold = 0`, `flow_tap_term = 0`, permissive hold = 0), and these override the `config.h` `#define`s. So a fresh EEPROM has *no* Chordal Hold, and same-hand rolls (e.g. `A`→`R`, where `A` is `LGUI_T`) can misfire as GUI+R until you enable it.
+
+What this firmware contributes is the split **handedness map** in `csmos.c` (matrix rows 0–6 = left, 7–13 = right) so Chordal Hold's opposite-hands rule is correct once enabled.
+
+To turn the mods on, in **Vial → QMK Settings → Tap-Hold**:
+
+- Enable **Chordal Hold** — fixes same-hand rolls (the `A`→`R` GUI+R problem).
+- Set **Flow Tap term** to `150`.
+- Optionally enable **Permissive Hold** for snappier opposite-hand holds.
+- Set **Tapping Term** to `200`, then **Save**.
+
+> Vial stores the keymap and QMK settings in EEPROM and overrides `keymap.c`/`config.h` at runtime. After flashing, reset EEPROM (hold the lower-left key while plugging in) so this default keymap loads, then re-apply the QMK Settings above.
 
 ### Combos
 
